@@ -90,7 +90,7 @@ body {
     transition: .5s;
 
     &.rubberBand {
-      color: darkcyan;
+      color: #ff4040;
       transform: scale(1.1);
     }
   }
@@ -98,7 +98,7 @@ body {
   .title {
     margin-top: -4em;
     margin-bottom: 1em;
-    
+
     span {
       font-size: 3em;
     }
