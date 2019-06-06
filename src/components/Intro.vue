@@ -1,5 +1,6 @@
 <template>
   <div id="intro">
+    <div id="initials">SP.</div>
     <div class="title">
       <span
         v-for="(character, key) in generatedTitle"
@@ -8,9 +9,7 @@
         :class="{ rubberBand: isHoveringTitle[key] }"
         @mouseover="onMouseOver('title', key)"
         @mouseout="onMouseOut('title', key)"
-      >
-        {{ character !== " " ? character : "&nbsp;" }}
-      </span>
+      >{{ character !== " " ? character : "&nbsp;" }}</span>
     </div>
     <div class="subtitle">
       <span
@@ -20,12 +19,10 @@
         :class="{ rubberBand: isHoveringSecondaryTitle[key] }"
         @mouseover="onMouseOver('secondaryTitle', key)"
         @mouseout="onMouseOut('secondaryTitle', key)"
-      >
-        {{ character !== " " ? character : "&nbsp;" }}
-      </span>
+      >{{ character !== " " ? character : "&nbsp;" }}</span>
     </div>
     <div class="scroll-down">
-      <img src="/scrolldown.png" alt="scroll down"/>
+      <img src="/scrolldown.png" alt="scroll down" />
       <p>Scroll down</p>
     </div>
     <SocialMediaIcons />
@@ -64,30 +61,45 @@ export default {
         : this.$set(this.isHoveringSecondaryTitle, key, true);
     },
     onMouseOut(array, key) {
-      setTimeout(() => array === "title"
-        ? this.$set(this.isHoveringTitle, key, false)
-        : this.$set(this.isHoveringSecondaryTitle, key, false), 500);
+      setTimeout(
+        () =>
+          array === "title"
+            ? this.$set(this.isHoveringTitle, key, false)
+            : this.$set(this.isHoveringSecondaryTitle, key, false),
+        500
+      );
     }
   }
 };
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-}
 #intro {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   flex-direction: column;
+
+  #initials {
+    font-size: 6em;
+    color: #ff4040;
+    font-weight: bold;
+    top: 30px;
+    position: absolute;
+    left: 30px;
+    letter-spacing: 2px;
+    width: 160px;
+    height: 160px;
+    line-height: 165px;
+    border: 5px solid #ff404055;
+  }
 
   span {
     display: inline-block;
     color: white;
-    transition: .5s;
+    transition: 0.5s;
 
     &.rubberBand {
       color: #ff4040;
