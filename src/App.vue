@@ -22,6 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin: 0;
+  cursor: url("/circle.svg") 18 18, auto;
 }
 canvas {
   height: 100%;

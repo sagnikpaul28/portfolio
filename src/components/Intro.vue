@@ -24,13 +24,23 @@
         {{ character !== " " ? character : "&nbsp;" }}
       </span>
     </div>
+    <div class="scroll-down">
+      <img src="/scrolldown.png" alt="scroll down"/>
+      <p>Scroll down</p>
+    </div>
+    <SocialMediaIcons />
   </div>
 </template>
 
 <script>
 import { setTimeout } from "timers";
+import SocialMediaIcons from "./SocialMediaIcons";
+
 export default {
   name: "Intro",
+  components: {
+    SocialMediaIcons
+  },
   data() {
     return {
       title: "Hello I'm Sagnik Paul",
@@ -63,11 +73,16 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+body {
+  margin: 0;
+}
+#intro {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0,0,0,.5);
+  flex-direction: column;
 
   span {
     display: inline-block;
@@ -81,6 +96,9 @@ export default {
   }
 
   .title {
+    margin-top: -4em;
+    margin-bottom: 1em;
+    
     span {
       font-size: 3em;
     }
@@ -89,6 +107,24 @@ export default {
   .subtitle {
     span {
       font-size: 2.5em;
+    }
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+      filter: invert(1);
+      height: 60px;
+      width: 60px;
+    }
+
+    p {
+      margin-top: 0;
+      color: white;
     }
   }
 }

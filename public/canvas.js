@@ -20,7 +20,7 @@ function init() {
 	scene = new THREE.Scene();
 	scene.fog = new THREE.Fog(0x000000, 0.015, 72);
 
-	camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+	camera = new THREE.PerspectiveCamera( 100, window.innerWidth/window.innerHeight, 0.1, 1000 );
 	renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true, alpha: true});
 	renderer.sortObjects = false;
 	renderer.autoClearColor = false;
