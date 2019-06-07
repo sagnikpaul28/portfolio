@@ -2,18 +2,21 @@
   <div id="app">
     <Intro />
     <Skills />
+    <Projects />
   </div>
 </template>
 
 <script>
 import Intro from "./components/Intro";
 import Skills from "./components/Skills";
+import Projects from "./components/Projects";
 
 export default {
   name: "app",
   components: {
     Intro,
-    Skills
+    Skills,
+    Projects
   }
 };
 </script>
@@ -21,6 +24,8 @@ export default {
 <style lang="scss">
 body {
   margin: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

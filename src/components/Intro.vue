@@ -6,7 +6,7 @@
         v-for="(character, key) in generatedTitle"
         :key="key"
         class="animated"
-        :class="{ rubberBand: isHoveringTitle[key] }"
+        :class="{ rubberBand: isHoveringTitle[key], backgroundPrimary: character==='S'||character==='P' }"
         @mouseover="onMouseOver('title', key)"
         @mouseout="onMouseOut('title', key)"
       >{{ character !== " " ? character : "&nbsp;" }}</span>
@@ -113,6 +113,11 @@ export default {
 
     span {
       font-size: 3em;
+
+      &.backgroundPrimary {
+        color: #ff4040;
+        font-size: 4.5em;
+      }
     }
   }
 

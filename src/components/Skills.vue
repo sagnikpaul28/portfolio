@@ -33,7 +33,6 @@ export default {
 
 <style lang="scss">
 #skills {
-  min-height: calc( 100vh - 4em);
   padding: 2em 4em;
   background: linear-gradient(#00000099, #000000ee, #000000ff, #111);
   display: flex;
@@ -79,7 +78,7 @@ export default {
       height: 90px;
       width: 90px;
       object-fit: contain;
-      margin: 20px 60px;
+      margin: 60px;
       transition: .3s;
 
       &:hover {
