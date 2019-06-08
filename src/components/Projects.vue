@@ -2,63 +2,70 @@
   <div id="projects">
     <div id="container">
       <p>Projects</p>
-      <div class="item">
-        <img src="/dc.png" />
+      <div class="project">
+        <img src="/dc.png" class="image" />
         <div class="layer" />
         <div class="layer2" />
-        <p>DC Wikipedia</p>
-        <p>A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend</p>
-        <span>01</span>
+        <p class="title">DC Wikipedia</p>
+        <p class="description">A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend</p>
+        <span class="index">01</span>
+        <a href="" class="link"><img src="/github.svg" /></a>
       </div>
-      <div class="item">
-        <img src="/pokedex.png" />
+      <div class="project">
+        <img src="/pokedex.png" class="image" />
         <div class="layer" />
-        <span>02</span>
+        <span class="index">02</span>
         <div class="layer2" />
-        <p>Pokedex</p>
-        <p>A Simple React project using Redux to show all the pokemons from the 1st generation</p>
+        <p class="title">Pokedex</p>
+        <p class="description">A Simple React project using Redux to show all the pokemons from the 1st generation</p>
+        <a href="" class="link"><img src="/github.svg" /></a>
       </div>
-      <div class="item">
-        <img src="/elabs.png" />
+      <div class="project">
+        <img src="/elabs.png" class="image" />
         <div class="layer" />
-        <span>03</span>
+        <span class="index">03</span>
         <div class="layer2" />
-        <p>KIIT Elabs</p>
-        <p>E Labs is the brainchild of a bunch of college students who wanted to share their skills with their college mates at a better platform</p>
+        <p class="title">KIIT Elabs</p>
+        <p class="description">E Labs is the brainchild of a bunch of college students who wanted to share their skills with their college mates at a better platform</p>
+        <a href="" class="link"><img src="/link.png" /></a>
       </div>
-      <div class="item">
-        <img src="/quiz.png" />
+      <div class="project">
+        <img src="/quiz.png" class="image" />
         <div class="layer" />
-        <span>04</span>
+        <span class="index">04</span>
         <div class="layer2" />
-        <p>Quiz</p>
-        <p>Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.</p>
+        <p class="title">Quiz</p>
+        <p class="description">Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.</p>
+        <a href="" class="link"><img src="/link.png" /></a>
       </div>
-      <div class="item">
-        <img src="/jethitech.png" />
+      <div class="project">
+        <img src="/jethitech.png" class="image" />
         <div class="layer" />
-        <span>05</span>
+        <span class="index">05</span>
         <div class="layer2" />
-        <p>JethiTech</p>
-        <p>JethiTech is an organization that assists you in website designing, Online Marketing, SEO Optimization, Social Media Marketing and Website Hosting.</p>
+        <p class="title">JethiTech</p>
+        <p class="description">JethiTech is an organization that assists you in website designing, Online Marketing, SEO Optimization, Social Media Marketing and Website Hosting.</p>
+        <a href="" class="link"><img src="/link.png" /></a>
       </div>
-      <div class="item">
-        <img src="/chat.png" />
+      <div class="project">
+        <img src="/chat.png" class="image" />
         <div class="layer" />
-        <span>06</span>
+        <span class="index">06</span>
         <div class="layer2" />
-        <p>DC Wikipedia</p>
-        <p>A simple real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.</p>
+        <p class="title">DC Wikipedia</p>
+        <p class="description">A simple real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.</p>
+        <a href="" class="link"><img src="/github.svg" /></a>
       </div>
-      <div class="item">
-        <img src="/sonic.png" />
+      <div class="project">
+        <img src="/sonic.png" class="image" />
         <div class="layer" />
-        <span>07</span>
+        <span class="index">07</span>
         <div class="layer2" />
-        <p>Sonic Run</p>
-        <p>A modified version of the famous Dino game from Chrome. Built using Javascript and HTML5 Canvas.</p>
+        <p class="title">Sonic Run</p>
+        <p class="description">A modified version of the famous Dino game from Chrome. Built using Javascript and HTML5 Canvas.</p>
+        <a href="" class="link"><img src="/github.svg" /></a>
       </div>
-    </div>>
+    </div>
   </div>
 </template>
 
@@ -116,7 +123,7 @@ export default {
       font-weight: bold;
     }
 
-    .item {
+    .project {
       position: relative;
       flex-basis: calc(50% - 100px);
       margin: 20px 0 40px;
@@ -140,6 +147,7 @@ export default {
         z-index: 1;
         transition: .5s;
         overflow: hidden;
+        background: linear-gradient(to top, #55000088, #000000aa);
 
         & ~ p {
           color: white;
@@ -150,14 +158,14 @@ export default {
           text-align: left;
           transition: .4s;
 
-          &:nth-of-type(1) {
+          &.title {
             top: calc(50% - 20px);
             transform: translateY(-50%);
             font-size: 2em;
             width: calc(100% - 30px);
           }
 
-          &:nth-of-type(2) {
+          &.description {
             top: calc(100% - 30px);
             font-size: 1.2em;
             line-height: 1;
@@ -167,12 +175,12 @@ export default {
         }
       }
 
-      img {
+      .image {
         width: 100%;
         object-fit: cover;
       }
 
-      span {
+      .index {
         position: absolute;
         top: -40px;
         color: #bbbbbb;
@@ -182,17 +190,27 @@ export default {
         transition: .3s ease;
       }
 
+      .link {
+        position: absolute;
+        top: 90%;
+        z-index: 1;
+        opacity: 0;
+        transition: .3s;
+        cursor: pointer;
+
+        img {
+          height: 40px;
+          width: 40px;
+          filter: brightness(0) invert(1);
+        }
+      }
+
       &:nth-of-type(even) {
         transform: translateY(100px);
         margin-left: 30px;
         margin-right: 70px;
 
-        .layer2 {
-          right: 0;
-          background: linear-gradient(to right, #55000088, #000000aa);
-        }
-
-        span {
+        .index {
           right: -30px;
         }
 
@@ -200,24 +218,27 @@ export default {
           right: 15px;
           text-align: right;
         }
+
+        .link {
+          left: 20px;
+        }
       }
 
       &:nth-of-type(odd) {
         margin-left: 70px;
         margin-right: 30px;
 
-        .layer2 {
-          left: 0;
-          background: linear-gradient(to right, #000000aa, #55000088);
-        }
-
-        span {
+        .index {
           left: -30px;
         }
 
         p {
           left: 15px;
           text-align: left;
+        }
+
+        .link {
+          right: 20px;
         }
       }
 
@@ -230,34 +251,28 @@ export default {
           height: 100%;
         }
 
-        span {
+        .index {
           color: white;
           top: -65px;
-
-          &:nth-of-type(even) {
-            span {
-              left: -40px;
-            }
-          }
-
-          &:nth-of-type(odd) {
-            span {
-              right: -40px;
-            }
-          }
         }
 
         p {
-          &:nth-of-type(1) {
+          &.title {
             top: calc(50% - 65px);
           }
 
-          &:nth-of-type(2) {
+          &.description {
             top: calc(50% - 30px);
             transition-duration: .3s;
             transition-delay: .3s;
             opacity: 1;
           }
+        }
+
+        .link {
+          transition-delay: .2s;
+          top: calc(50% - 85px);
+          opacity: 1;
         }
       }
     }
