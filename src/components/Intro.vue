@@ -1,5 +1,5 @@
 <template>
-  <div id="intro">
+  <div class="intro">
     <div id="initials">SP.</div>
     <div class="title">
       <span
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-#intro {
+.intro {
   min-height: 100vh;
   display: flex;
   justify-content: center;

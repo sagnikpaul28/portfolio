@@ -1,5 +1,5 @@
 <template>
-    <div id="about">
+    <div class="about">
       <div class="container">
         <div class="image-container">
           <img src="/sagnik.jpg" />
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-#about {
+.about {
   background: #111;
   padding: 5em 0 10em;
 

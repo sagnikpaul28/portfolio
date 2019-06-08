@@ -1,5 +1,5 @@
 <template>
-    <div id="contact">
+    <div class="contact">
       <div class="container">
         <p>Want to discuss new ideas or get a cup of coffee together?</p>
         <form>
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="scss">
-#contact {
+.contact {
   background: #ff4040;
   position: relative;
   padding: 190px 0 80px;
@@ -173,6 +173,7 @@ export default {
     border: 2px solid white;
     transition: .5s ease;
     opacity: 0;
+    z-index: 10;
 
     &.active {
       bottom: 20px;

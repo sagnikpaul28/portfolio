@@ -1,5 +1,5 @@
 <template>
-  <div id="projects">
+  <div class="projects">
     <div id="container">
       <p>Projects</p>
       <div class="project">
@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss">
-#projects {
+.projects {
   background: #111;
   min-height: 100vh;
   padding: 200px 0;

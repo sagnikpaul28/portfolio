@@ -1,5 +1,5 @@
 <template>
-  <div id="social-media">
+  <div class="social-media">
     <a href="https://www.facebook.com/sagnikpaul10">
       <img src="/facebook.svg" alt="facebook" />
     </a>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-#social-media {
+.social-media {
   display: flex;
   flex-direction: column;
   position: absolute;

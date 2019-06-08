@@ -1,5 +1,5 @@
 <template>
-    <div id="skills">
+    <div class="skills">
       <p>
         <span>Skills</span>
         Enthusiastic full stack developer with expertise in the following list of programming languages and their plugins and frameworks
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-#skills {
+.skills {
   padding: 2em 4em;
   background: linear-gradient(#00000099, #000000ee, #000000ff, #111);
   display: flex;
