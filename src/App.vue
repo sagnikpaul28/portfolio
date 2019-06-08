@@ -3,6 +3,7 @@
     <Intro />
     <Skills />
     <Projects />
+    <About />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import Intro from "./components/Intro";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import About from "./components/About";
 
 export default {
   name: "app",
   components: {
     Intro,
     Skills,
-    Projects
+    Projects,
+    About
   }
 };
 </script>
