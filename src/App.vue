@@ -4,6 +4,7 @@
     <Skills />
     <Projects />
     <About />
+    <Contact />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Intro from "./components/Intro";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import About from "./components/About";
+import Contact from "./components/Contact";
 
 export default {
   name: "app",
@@ -19,7 +21,8 @@ export default {
     Intro,
     Skills,
     Projects,
-    About
+    About,
+    Contact
   }
 };
 </script>
