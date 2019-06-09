@@ -81,4 +81,22 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 1320px) {
+  .skills {
+    flex-direction: column;
+
+    p {
+      text-align: center;
+
+      span{
+        &:after {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 300px;
+        }
+      }
+    }
+  }
+}
 </style>

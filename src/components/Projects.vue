@@ -51,7 +51,6 @@ export default {
     &:before {
       content: "";
       height: 0;
-      width: 100%;
       position: absolute;
       border-top: 100px solid transparent;
       top: -100px;
@@ -231,6 +230,23 @@ export default {
           transition-delay: 0.2s;
           top: calc(50% - 85px);
           opacity: 1;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1200px){
+      .project {
+        flex-basis: 85%;
+        
+        &:nth-of-type(odd) {
+          margin-left: 5%;
+          margin-right: 10%;
+        }
+
+        &:nth-of-type(even) {
+          transform: none;
+          margin-left: 10%;
+          margin-right: 5%;
         }
       }
     }

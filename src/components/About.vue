@@ -33,6 +33,7 @@ export default {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 90%;
 
     .image-container {
       flex-basis: 300px;
@@ -63,6 +64,25 @@ export default {
       line-height: 1.2;
       text-align: left;
 
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+
+      .image-container {
+        margin: 0;
+
+        img {
+          max-width: 250px;
+        }
+      }
+
+      p {
+        margin-top: -20px;
+        text-align: center;
+      }
     }
   }
 }

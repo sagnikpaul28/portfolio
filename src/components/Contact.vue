@@ -108,6 +108,7 @@ export default {
     max-width: 700px;
     display: block;
     margin: 0 auto;
+    width: 90%;
 
     p {
       margin: 0 auto 35px;
