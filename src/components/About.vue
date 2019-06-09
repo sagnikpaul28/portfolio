@@ -4,19 +4,51 @@
         <div class="image-container">
           <img src="/sagnik.jpg" />
         </div>
-        <p>{{ about }}</p>
+        <p>
+          <span v-for="(word, index1) in getWords" :key="index1">
+            <span class="animated" v-for="(character, index2) in getCharacters(word)" :key="index2" @mouseover="onMouseOver(index1, index2)" @mouseout="onMouseOut(index1, index2)" :class="{heartBeat: (showAnimation[index1] ? showAnimation[index1][index2] : false) }">
+              {{ character }}
+            </span>
+            <span>&nbsp;</span>
+          </span>
+        </p>
       </div>
     </div>
 </template>
 
 <script>
 import Translations from "../transations/default.json";
+import { setTimeout } from 'timers';
 
 export default {
   name: "About",
   data() {
     return {
-      about: Translations.About
+      about: Translations.About,
+      showAnimation: []
+    }
+  },
+  computed: {
+    getWords() {
+      return this.about.split(' ');
+    },
+    getCharacters() {
+      return function(word) {
+        return word.split('');
+      };
+    }
+  },
+  methods: {
+    onMouseOver(index1, index2) {
+      if (!this.showAnimation[index1]) {
+        this.$set(this.showAnimation, index1, []);
+      }
+      this.$set(this.showAnimation[index1], index2, true);
+    },
+    onMouseOut(index1, index2) {
+      setTimeout( () => {
+        this.$set(this.showAnimation[index1], index2, false);
+      }, 2000)
     }
   }
 }
@@ -64,6 +96,15 @@ export default {
       line-height: 1.2;
       text-align: left;
 
+      span {
+        display: inline-block;
+
+        span {
+          &.heartBeat {
+            color: #ff4040;
+          }
+        }
+      }
     }
   }
 
