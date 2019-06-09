@@ -1,0 +1,121 @@
+{
+    "Intro": {
+        "name": "Hello I'm Sagnik Paul",
+        "subtitle": "And I'm not your average software engineer",
+        "scrollDown": "Scroll Down"
+    },
+    "SocialMediaLinks": {
+        "facebookLink": "https://www.facebook.com/sagnikpaul10",
+        "linkedInLink": "https://www.linkedin.com/in/sagnikpaul28/",
+        "githubLink": "https://github.com/sagnikpaul28"
+    },
+    "Skills": {
+        "title": "Skills",
+        "description": "Enthusiastic full stack developer with expertise in the following list of programming languages and their plugins and frameworks",
+        "list": [{
+            "name": "HTML",
+            "url": "/html.png"
+        }, {
+            "name": "CSS",
+            "url": "/css.png"
+        }, {
+            "name": "SASS",
+            "url": "/sass.png"
+        }, {
+            "name": "Bootstrap",
+            "url": "/bootstrap.png"
+        }, {
+            "name": "Javascript",
+            "url": "/javascript.png"
+        }, {
+            "name": "Angular",
+            "url": "/angular.png"
+        }, {
+            "name": "Vue",
+            "url": "/vue.png"
+        }, {
+            "name": "React",
+            "url": "/react.png"
+        }, {
+            "name": "Redux",
+            "url": "/redux.png"
+        }, {
+            "name": "Node",
+            "url": "/nodejs.png"
+        }, {
+            "name": "Socket.io",
+            "url": "/socket.png"
+        }, {
+            "name": "Java",
+            "url": "/java.png"
+        }, {
+            "name": "PHP",
+            "url": "/php.png"
+        }, {
+            "name": "WordPress",
+            "url": "/wordpress.png"
+        }, {
+            "name": "MongoDB",
+            "url": "/mongodb.png"
+        }, {
+            "name": "MySQL",
+            "url": "/mysql.png"
+        }]
+    },
+    "Projects": {
+        "title": "Projects",
+        "items": [{
+            "name": "DC Wikipedia",
+            "description": "A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend",
+            "image": "/dc.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/dc-wiki"
+        }, {
+            "name": "Pokedex",
+            "description": "A Simple React project using Redux to show all the pokemons from the 1st generation",
+            "image": "/pokedex.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/pokedex"
+        }, {
+            "name": "KIIT Elabs",
+            "description": "E Labs is the brainchild of a bunch of college students who wanted to share their skills with their college mates at a better platform",
+            "image": "/elabs.png",
+            "linkType": "link",
+            "url": "http://www.kiitelabs.com/"
+        }, {
+            "name": "Quiz",
+            "description": "Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.",
+            "image": "/quiz.png",
+            "linkType": "link",
+            "url": "https://quizzzsite.000webhostapp.com"
+        }, {
+            "name": "JethiTech",
+            "description": "JethiTech is an organization that assists you in website designing, Online Marketing, SEO Optimization, Social Media Marketing and Website Hosting.",
+            "image": "/jethitech.png",
+            "linkType": "link",
+            "url": "http://jethitech.com/"
+        }, {
+            "name": "Chat App",
+            "description": "A simple real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.",
+            "image": "/chat.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/chat"
+        }, {
+            "name": "Sonic Run",
+            "description": "A modified version of the famous Dino game from Chrome using Sonic the Hedgehog instead of the Dinosaur. Built using Javascript and HTML5 Canvas.",
+            "image": "/sonic.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/sonic-run"
+        }]
+    },
+    "About": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "Contact": {
+        "title": "Want to discuss new ideas or get a cup of coffee together?",
+        "labels": {
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "submit": "Submit"
+        }
+    }
+}

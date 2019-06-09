@@ -1,77 +1,34 @@
 <template>
   <div class="projects">
     <div id="container">
-      <p>Projects</p>
-      <div class="project">
-        <img src="/dc.png" class="image" />
+      <p>{{title}}</p>
+      <div class="project" v-for="(project, index) in projects" :key="index">
+        <img :src="project.image" class="image" :alt="project.name" />
         <div class="layer" />
         <div class="layer2" />
-        <p class="title">DC Wikipedia</p>
-        <p class="description">A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend</p>
-        <span class="index">01</span>
-        <a href="" class="link"><img src="/github.svg" /></a>
-      </div>
-      <div class="project">
-        <img src="/pokedex.png" class="image" />
-        <div class="layer" />
-        <span class="index">02</span>
-        <div class="layer2" />
-        <p class="title">Pokedex</p>
-        <p class="description">A Simple React project using Redux to show all the pokemons from the 1st generation</p>
-        <a href="" class="link"><img src="/github.svg" /></a>
-      </div>
-      <div class="project">
-        <img src="/elabs.png" class="image" />
-        <div class="layer" />
-        <span class="index">03</span>
-        <div class="layer2" />
-        <p class="title">KIIT Elabs</p>
-        <p class="description">E Labs is the brainchild of a bunch of college students who wanted to share their skills with their college mates at a better platform</p>
-        <a href="" class="link"><img src="/link.png" /></a>
-      </div>
-      <div class="project">
-        <img src="/quiz.png" class="image" />
-        <div class="layer" />
-        <span class="index">04</span>
-        <div class="layer2" />
-        <p class="title">Quiz</p>
-        <p class="description">Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.</p>
-        <a href="" class="link"><img src="/link.png" /></a>
-      </div>
-      <div class="project">
-        <img src="/jethitech.png" class="image" />
-        <div class="layer" />
-        <span class="index">05</span>
-        <div class="layer2" />
-        <p class="title">JethiTech</p>
-        <p class="description">JethiTech is an organization that assists you in website designing, Online Marketing, SEO Optimization, Social Media Marketing and Website Hosting.</p>
-        <a href="" class="link"><img src="/link.png" /></a>
-      </div>
-      <div class="project">
-        <img src="/chat.png" class="image" />
-        <div class="layer" />
-        <span class="index">06</span>
-        <div class="layer2" />
-        <p class="title">DC Wikipedia</p>
-        <p class="description">A simple real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.</p>
-        <a href="" class="link"><img src="/github.svg" /></a>
-      </div>
-      <div class="project">
-        <img src="/sonic.png" class="image" />
-        <div class="layer" />
-        <span class="index">07</span>
-        <div class="layer2" />
-        <p class="title">Sonic Run</p>
-        <p class="description">A modified version of the famous Dino game from Chrome. Built using Javascript and HTML5 Canvas.</p>
-        <a href="" class="link"><img src="/github.svg" /></a>
+        <p class="title">{{ project.name }}</p>
+        <p class="description">{{ project.description }}</p>
+        <span class="index">{{ index + 1 }}</span>
+        <a :href="project.url" class="link" >
+          <img src="/github.svg" alt="github" v-if="project.linkType === 'github'" />
+          <img src="/link.png" alt="link" v-if="project.linkType === 'link'" />
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Translations from "../transations/default.json";
+
 export default {
-  name: "Projects"
+  name: "Projects",
+  data() {
+    return {
+      title: Translations.Projects.title,
+      projects: Translations.Projects.items
+    };
+  }
 };
 </script>
 
@@ -135,8 +92,8 @@ export default {
         height: 100%;
         width: 100%;
         z-index: 1;
-        background: rgba(0,0,0,.5);
-        transition: .5s;
+        background: rgba(0, 0, 0, 0.5);
+        transition: 0.5s;
       }
 
       .layer2 {
@@ -145,7 +102,7 @@ export default {
         height: 0;
         width: 100%;
         z-index: 1;
-        transition: .5s;
+        transition: 0.5s;
         overflow: hidden;
         background: linear-gradient(to top, #55000088, #000000aa);
 
@@ -156,7 +113,7 @@ export default {
           margin: 0;
           position: absolute;
           text-align: left;
-          transition: .4s;
+          transition: 0.4s;
 
           &.title {
             top: calc(50% - 20px);
@@ -170,7 +127,7 @@ export default {
             font-size: 1.2em;
             line-height: 1;
             opacity: 0;
-            width: calc(100% - 60px);
+            width: calc(100% - 120px);
           }
         }
       }
@@ -187,7 +144,7 @@ export default {
         z-index: 2;
         font-size: 7em;
         font-weight: bold;
-        transition: .3s ease;
+        transition: 0.3s ease;
       }
 
       .link {
@@ -195,8 +152,9 @@ export default {
         top: 90%;
         z-index: 1;
         opacity: 0;
-        transition: .3s;
+        transition: 0.3s;
         cursor: pointer;
+        z-index: 3;
 
         img {
           height: 40px;
@@ -244,7 +202,7 @@ export default {
 
       &:hover {
         .layer {
-          background: rgba(0,0,0,.75);
+          background: rgba(0, 0, 0, 0.75);
         }
 
         .layer2 {
@@ -263,19 +221,19 @@ export default {
 
           &.description {
             top: calc(50% - 30px);
-            transition-duration: .3s;
-            transition-delay: .3s;
+            transition-duration: 0.3s;
+            transition-delay: 0.3s;
             opacity: 1;
           }
         }
 
         .link {
-          transition-delay: .2s;
+          transition-delay: 0.2s;
           top: calc(50% - 85px);
           opacity: 1;
         }
       }
     }
-  } 
+  }
 }
 </style>

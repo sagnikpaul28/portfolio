@@ -2,13 +2,13 @@
   <div class="footer">
     <p>©Sagnik</p>
     <div class="footer-social-media">
-    <a href="https://www.facebook.com/sagnikpaul10">
+    <a :href="facebookLink">
       <img src="/facebook.svg" alt="facebook" />
     </a>
-    <a href="https://www.linkedin.com/in/sagnikpaul28/">
+    <a :href="linkedInLink">
       <img src="/linkedin.svg" alt="linkedin" />
     </a>
-    <a href="https://github.com/sagnikpaul28">
+    <a :href="githubLink">
       <img src="/github.svg" alt="github" />
     </a>
   </div>
@@ -16,8 +16,17 @@
 </template>
 
 <script>
+import Translations from "../transations/default.json";
+
 export default {
-  name: "Footer"
+  name: "Footer",
+  data() {
+    return {
+      facebookLink: Translations.SocialMediaLinks.facebookLink,
+      linkedInLink: Translations.SocialMediaLinks.linkedInLink,
+      githubLink: Translations.SocialMediaLinks.githubLink
+    }
+  }
 }
 </script>
 

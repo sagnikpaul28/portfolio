@@ -6,10 +6,14 @@
         v-for="(character, key) in generatedTitle"
         :key="key"
         class="animated"
-        :class="{ rubberBand: isHoveringTitle[key], backgroundPrimary: character==='S'||character==='P' }"
+        :class="{ 
+          rubberBand: isHoveringTitle[key], 
+          backgroundPrimary: character==='S'||character==='P' 
+        }"
         @mouseover="onMouseOver('title', key)"
         @mouseout="onMouseOut('title', key)"
-      >{{ character !== " " ? character : "&nbsp;" }}</span>
+        >{{ character !== " " ? character : "&nbsp;" }}
+      </span>
     </div>
     <div class="subtitle">
       <span
@@ -19,11 +23,12 @@
         :class="{ rubberBand: isHoveringSecondaryTitle[key] }"
         @mouseover="onMouseOver('secondaryTitle', key)"
         @mouseout="onMouseOut('secondaryTitle', key)"
-      >{{ character !== " " ? character : "&nbsp;" }}</span>
+        >{{ character !== " " ? character : "&nbsp;" }}
+      </span>
     </div>
     <div class="scroll-down">
       <img src="/scrolldown.png" alt="scroll down" />
-      <p>Scroll down</p>
+      <p>{{ scrollDown }}</p>
     </div>
     <SocialMediaIcons />
   </div>
@@ -32,6 +37,7 @@
 <script>
 import { setTimeout } from "timers";
 import SocialMediaIcons from "./SocialMediaIcons";
+import Translations from "../transations/default.json";
 
 export default {
   name: "Intro",
@@ -40,10 +46,11 @@ export default {
   },
   data() {
     return {
-      title: "Hello I'm Sagnik Paul",
-      subtitle: "And I'm not your average software engineer",
+      title: Translations.Intro.name,
+      subtitle: Translations.Intro.subtitle,
       isHoveringTitle: [],
-      isHoveringSecondaryTitle: []
+      isHoveringSecondaryTitle: [],
+      scrollDown: Translations.Intro.scrollDown
     };
   },
   computed: {

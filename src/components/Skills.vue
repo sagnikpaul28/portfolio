@@ -1,33 +1,27 @@
 <template>
     <div class="skills">
       <p>
-        <span>Skills</span>
-        Enthusiastic full stack developer with expertise in the following list of programming languages and their plugins and frameworks
+        <span>{{ title }}</span>
+        {{ description }}
       </p>
       <div id="icons">
-        <img src="/html.png" alt="html" title="HTML" />
-        <img src="/css.png" alt="css" title="CSS" />
-        <img src="/sass.png" alt="sass" title="SASS" />
-        <img src="/bootstrap.png" alt="bootstrap" title="Bootstrap" />
-        <img src="/javascript.png" alt="javascript" title="JavaScript" />
-        <img src="/angular.png" alt="angular" title="Angular" />
-        <img src="/vue.png" alt="vue" title="Vue" />
-        <img src="/react.png" alt="react" title="React" />
-        <img src="/redux.png" alt="redux" title="Redux" />
-        <img src="/nodejs.png" alt="node" title="Node" />
-        <img src="/socket.png" alt="socket" title="Socket.io" />
-        <img src="/java.png" alt="java" title="Java" />
-        <img src="/php.png" alt="php" title="PHP" />
-        <img src="/wordpress.png" alt="wordpress" title="WordPress" />
-        <img src="/mongodb.png" alt="mongodb" title="MongpDB" />
-        <img src="/mysql.png" alt="mysql" title="MySQL" />
+        <img v-for="(item, index) in skills" :key="index" :src="item.url" :title="item.name" :alt="item.name" />
       </div>
     </div>
 </template>
 
 <script>
+import Translations from "../transations/default.json";
+
 export default {
-  name: "Skills"
+  name: "Skills",
+  data() {
+    return {
+      title: Translations.Skills.title,
+      description: Translations.Skills.description,
+      skills: Translations.Skills.list
+    }
+  }
 }
 </script>
 

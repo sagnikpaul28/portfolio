@@ -1,21 +1,21 @@
 <template>
     <div class="contact">
       <div class="container">
-        <p>Want to discuss new ideas or get a cup of coffee together?</p>
+        <p>{{ title }}</p>
         <form>
           <div class="input-group">
-            <label :class="{active: labelActive.name}">Name</label>
+            <label :class="{active: labelActive.name}">{{ labels.name }}</label>
             <input type="text" class="input" name="name" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.name" />
           </div>
           <div class="input-group">
-            <label :class="{active: labelActive.email}">Email</label>
+            <label :class="{active: labelActive.email}">{{ labels.email }}</label>
             <input type="email" class="input" name="email" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.email" />
           </div>
           <div class="input-group">
-            <label :class="{active: labelActive.message}">Message</label>
+            <label :class="{active: labelActive.message}">{{ labels.message }}</label>
             <textarea class="input" rows="5" name="message" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.message" />
           </div>
-          <button class="btn" @click="onSubmit()" type="button">Submit</button>
+          <button class="btn" @click="onSubmit()" type="button">{{ labels.submit }}</button>
         </form>
       </div>
       <div class="error-message" :class="{active: error && !success}">{{ errorMessage }}</div>
@@ -25,6 +25,8 @@
 
 <script>
 import { setTimeout, clearTimeout, clearInterval } from 'timers';
+import Translations from "../transations/default.json";
+
 export default {
   name: "Contact",
   data() {
@@ -42,7 +44,14 @@ export default {
       error: false,
       errorMessage: '',
       success: false,
-      timeout: null
+      timeout: null,
+      title: Translations.Contact.title,
+      labels: {
+        name: Translations.Contact.labels.name,
+        email: Translations.Contact.labels.email,
+        message: Translations.Contact.labels.message,
+        submit: Translations.Contact.labels.submit,
+      }
     };
   },
   methods: {
@@ -56,7 +65,6 @@ export default {
     },
     onSubmit() {
       this.error = false;
-      console.log(this.timeout);
       this.timeout ? clearInterval(this.timeout) : '';
       if (!this.values.name) {
         this.errorMessage = 'Name can not be empty';
