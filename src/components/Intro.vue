@@ -2,20 +2,21 @@
   <div class="intro">
     <div id="initials">SP.</div>
     <div class="title">
-      <span v-for="(character, key) in generatedTitle" :key="key" class="animated" :class="{ rubberBand: isHoveringTitle[key], backgroundPrimary: character==='S'||character==='P' }"
-        @mouseover="onMouseOver('title', key)" @mouseout="onMouseOut('title', key)">
-        {{ character !== " " ? character : "&nbsp;" }}
+      <span v-for="(word, index1) in getWords(title)" :key="index1">
+        <span v-for="(character, index2) in getCharacters(word)" :key="index2" class="animated" :class="{rubberBand: (showAnimationTitle[index1] ? showAnimationTitle[index1][index2] : false), backgroundPrimary: character==='S'||character==='P'}"
+        @mouseover="onMouseOverTitle(index1, index2)" @mouseout="onMouseOutTitle(index1, index2)" >
+          {{ character }}
+        </span>
+        <span>&nbsp;</span>
       </span>
     </div>
     <div class="subtitle">
-      <span
-        v-for="(character, key) in generatedSecondTitle"
-        :key="key"
-        class="animated"
-        :class="{ rubberBand: isHoveringSecondaryTitle[key] }"
-        @mouseover="onMouseOver('secondaryTitle', key)"
-        @mouseout="onMouseOut('secondaryTitle', key)"
-        >{{ character !== " " ? character : "&nbsp;" }}
+      <span v-for="(word, index1) in getWords(subtitle)" :key="index1">
+        <span v-for="(character, index2) in getCharacters(word)" :key="index2" class="animated" :class="{rubberBand: (showAnimationSubtitle[index1] ? showAnimationSubtitle[index1][index2] : false), backgroundPrimary: character==='S'||character==='P'}"
+        @mouseover="onMouseOverSubtitle(index1, index2)" @mouseout="onMouseOutSubtitle(index1, index2)" >
+          {{ character }}
+        </span>
+        <span>&nbsp;</span>
       </span>
     </div>
     <div class="scroll-down">
@@ -40,33 +41,45 @@ export default {
     return {
       title: Translations.Intro.name,
       subtitle: Translations.Intro.subtitle,
-      isHoveringTitle: [],
-      isHoveringSecondaryTitle: [],
+      showAnimationTitle: [],
+      showAnimationSubtitle: [],
       scrollDown: Translations.Intro.scrollDown
     };
   },
   computed: {
-    generatedTitle() {
-      return Array.from(this.title);
+    getWords() {
+      return function(sentence) {
+        return sentence.split(' ');
+      }
     },
-    generatedSecondTitle() {
-      return Array.from(this.subtitle);
+    getCharacters() {
+      return function(word) {
+        return word.split('');
+      };
     }
   },
   methods: {
-    onMouseOver(array, key) {
-      array === "title"
-        ? this.$set(this.isHoveringTitle, key, true)
-        : this.$set(this.isHoveringSecondaryTitle, key, true);
+    onMouseOverTitle(index1, index2) {
+      if (!this.showAnimationTitle[index1]) {
+        this.$set(this.showAnimationTitle, index1, []);
+      }
+      this.$set(this.showAnimationTitle[index1], index2, true);
     },
-    onMouseOut(array, key) {
-      setTimeout(
-        () =>
-          array === "title"
-            ? this.$set(this.isHoveringTitle, key, false)
-            : this.$set(this.isHoveringSecondaryTitle, key, false),
-        500
-      );
+    onMouseOutTitle(index1, index2) {
+      setTimeout( () => {
+        this.$set(this.showAnimationTitle[index1], index2, false);
+      }, 1000)
+    },
+    onMouseOverSubtitle(index1, index2) {
+      if (!this.showAnimationSubtitle[index1]) {
+        this.$set(this.showAnimationSubtitle, index1, []);
+      }
+      this.$set(this.showAnimationSubtitle[index1], index2, true);
+    },
+    onMouseOutSubtitle(index1, index2) {
+      setTimeout( () => {
+        this.$set(this.showAnimationSubtitle[index1], index2, false);
+      }, 1000)
     }
   }
 };
@@ -111,18 +124,22 @@ export default {
     margin-bottom: 1em;
 
     span {
-      font-size: 3em;
+      span {
+        font-size: 3em;
 
-      &.backgroundPrimary {
-        color: #ff4040;
-        font-size: 4.5em;
+        &.backgroundPrimary {
+          color: #ff4040;
+          font-size: 4.5em;
+        }
       }
     }
   }
 
   .subtitle {
     span {
-      font-size: 2.5em;
+      span {
+        font-size: 2.5em;
+      }
     }
   }
 

@@ -48,7 +48,7 @@ export default {
     onMouseOut(index1, index2) {
       setTimeout( () => {
         this.$set(this.showAnimation[index1], index2, false);
-      }, 2000)
+      }, 1000)
     }
   }
 }
