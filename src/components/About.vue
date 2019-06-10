@@ -142,6 +142,11 @@ export default {
         width: 100%;
         border-radius: 50%;
         border: 3px solid white;
+        transition: .3s;
+
+        &:hover {
+          box-shadow: 4px 8px 20px 0px #222;
+        }
       }
     }
     
