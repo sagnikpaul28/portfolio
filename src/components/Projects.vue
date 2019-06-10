@@ -9,7 +9,7 @@
         <p class="title">{{ project.name }}</p>
         <p class="description">{{ project.description }}</p>
         <span class="index">{{ index + 1 }}</span>
-        <a :href="project.url" class="link" >
+        <a :href="project.url" class="link" target="_blank" >
           <img src="/github.svg" alt="github" v-if="project.linkType === 'github'" />
           <img src="/link.png" alt="link" v-if="project.linkType === 'link'" />
         </a>
