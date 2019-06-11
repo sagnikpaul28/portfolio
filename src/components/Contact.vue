@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { setTimeout, clearTimeout, clearInterval } from 'timers';
 import Translations from "../transations/default.json";
 
@@ -73,7 +74,28 @@ export default {
       }else if (!this.values.message) {
         this.errorMessage = 'Message can not be empty';
       }else {
-        //call api
+        this.errorMessage = 'Submitting your response';
+        this.error = true;
+        axios.post("https://calm-temple-25672.herokuapp.com/", {
+          body: JSON.stringify({
+            mailto: "sagnikpaul2882@gmail.com",
+            mailfrom: this.email,
+            subject: "Contact Form - Portfolio",
+            message: `Name: ${this.name}\nEmail: ${this.email}\nMessage: ${this.message}`
+          })
+        }).then(res => {
+          this.success = 'Your message has been successfully sent.';
+          this.timeout = setTimeout(() => {
+            this.success = false;
+          }, 3000);
+          console.log(res);
+        }).catch(err => {
+          this.errorMessage = "Some error occured. Please try again."
+          this.error = true;
+          this.timeout = setTimeout(() => {
+            this.error = false;
+          }, 3000);
+        })
         return;
       }
       this.error = true;
