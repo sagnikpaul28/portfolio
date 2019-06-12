@@ -1,6 +1,8 @@
 <template>
   <div class="intro">
-    <div id="initials">SP.</div>
+    <div id="initials">
+      <img src="/logo.svg" />
+    </div>
     <div class="title">
       <span v-for="(word, index1) in getWords(title)" :key="index1">
         <span v-for="(character, index2) in getCharacters(word)" :key="index2" class="animated" :class="{rubberBand: (showAnimationTitle[index1] ? showAnimationTitle[index1][index2] : false), backgroundPrimary: character==='S'||character==='P'}"
@@ -95,17 +97,24 @@ export default {
   flex-direction: column;
 
   #initials {
-    font-size: 6em;
-    color: #ff4040;
-    font-weight: bold;
     top: 30px;
     position: absolute;
     left: 30px;
-    letter-spacing: 2px;
-    width: 160px;
+    max-width: 160px;
+    width: calc(100% - 60px);
     height: 160px;
-    line-height: 165px;
-    border: 5px solid #ff404055;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media screen and (max-width: 600px){
+    #initials {
+      display: none;
+    }
   }
 
   span {
