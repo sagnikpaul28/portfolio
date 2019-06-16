@@ -1,6 +1,5 @@
 <template>
   <div class="footer">
-    <p>©Sagnik</p>
     <div class="footer-social-media">
     <a :href="facebookLink">
       <img src="/facebook.svg" alt="facebook" />
@@ -37,7 +36,7 @@ export default {
   box-shadow: 0px -4px 20px 0px #111;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   p {
     margin: 0;

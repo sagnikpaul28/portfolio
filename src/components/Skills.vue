@@ -152,4 +152,26 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 768px){
+  .skills {
+    padding: 2em; 
+
+    p {
+      .title {
+        font-size: 2em;
+
+        &:after {
+          width: 60%;
+        }
+      }
+    }
+
+    #icons {
+      img {
+        margin: 40px;
+      }
+    }
+  }
+}
 </style>

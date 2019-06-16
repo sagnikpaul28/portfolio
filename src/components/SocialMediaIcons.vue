@@ -1,12 +1,12 @@
 <template>
   <div class="social-media">
-    <a :href="facebookLink">
+    <a :href="facebookLink" target="_blank">
       <img src="/facebook.svg" alt="facebook" />
     </a>
-    <a :href="linkedInLink">
+    <a :href="linkedInLink" target="_blank">
       <img src="/linkedin.svg" alt="linkedin" />
     </a>
-    <a :href="githubLink">
+    <a :href="githubLink" target="_blank">
       <img src="/github.svg" alt="github" />
     </a>
   </div>
@@ -46,6 +46,12 @@ export default {
       filter: none;
       transform: scale(1.1);
     }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .social-media {
+    display: none;
   }
 }
 </style>

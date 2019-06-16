@@ -1,86 +1,50 @@
-"use strict";
-/* globals THREE, console */
+const canvas = document.getElementById('c1');
+const c = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// 1. Create an array to store stars
-// 2. Create stars in random locations within a cube
-// 3. Store stars in array so we can move them within render
-
-let camera, scene, renderer;
-let planeMesh;
+class Star {
+  constructor() {
+    this.x = Math.random()*canvas.width-canvas.width/2;
+    this.y = Math.random()*canvas.height-canvas.height/2;
+    this.px, this.py;
+    this.z = Math.random()*4;
+  }
+  update() {
+    this.px = this.x;
+    this.py = this.y;
+    this.z += speed;
+    this.x += this.x*(speed*0.2)*this.z;
+    this.y += this.y*(speed*0.2)*this.z;
+    if (this.x > canvas.width/2+50 || this.x < -canvas.width/2-50 ||
+        this.y > canvas.height/2+50 || this.y < -canvas.height/2-50) {
+      this.x = Math.random()*canvas.width-canvas.width/2;
+      this.y = Math.random()*canvas.height-canvas.height/2;
+      this.px = this.x;
+      this.py = this.y;
+      this.z = 0;
+    }
+  }
+  show() {
+    c.lineWidth = this.z;
+    c.beginPath();
+    c.moveTo(this.x, this.y);
+    c.lineTo(this.px, this.py);
+    c.stroke();
+  }
+}
+let speed = 0.01;
 let stars = [];
-let colors = [
-	"#183936",
-	"#497874",
-	"#6EB5AF",
-	"#93F2EA",
-	"#ffffff"
-];
-
-function init() {
-	scene = new THREE.Scene();
-	scene.fog = new THREE.Fog(0x000000, 0.015, 72);
-
-	camera = new THREE.PerspectiveCamera( 100, window.innerWidth/window.innerHeight, 0.1, 1000 );
-	renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true, alpha: true});
-	renderer.sortObjects = false;
-	renderer.autoClearColor = false;
-
-	// Scene initialization
-	camera.position.z = 55;
-
-	renderer.setClearColor( "#000", 1);
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setPixelRatio( window.devicePixelRatio );
-
-	document.body.appendChild( renderer.domElement );
-
-	for (let i = 0; i < 5000; i++) {
-		let geometry = new THREE.SphereBufferGeometry(0.08 * Math.random(), 20, 20);
-		let material = new THREE.MeshBasicMaterial({
-			color: colors[Math.floor(Math.random() * colors.length)], 
-			shading: THREE.FlatShading
-    	});
-
-	    let star = new THREE.Mesh(geometry, material);
-
-    	star.position.x = Math.random() * 100 - 50;
-    	star.position.y = Math.random() * 100 - 50;
-    	star.position.z = Math.random() * 50 - 25;
-
-    	scene.add(star);
-    	stars.push(star);
-	}
-
-	let planeGeometry = new THREE.PlaneGeometry(1000, 500, 1, 1);
-	let planeMaterial = new THREE.MeshBasicMaterial( {color: 0x000000, transparent: true, opacity: 1} );
-
-	planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
-
-	scene.add(planeMesh);
+for (let i = 0; i < 800; i++) stars.push(new Star());
+c.fillStyle = 'rgba(0, 0, 0, 0.4)';
+c.strokeStyle = 'rgb(255, 255, 255)';
+c.translate(canvas.width/2, canvas.height/2);
+function draw() {
+  requestAnimationFrame(draw);
+  c.fillRect(-canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
+  for (let s of stars) {
+    s.update();
+    s.show();
+  }
 }
-
-
-function render() {
-
-    requestAnimationFrame(render);
-	renderer.render(scene, camera);
-
-	for (let i = 0; i < stars.length; i++) {
-		stars[i].position.z += 0.09;
-
-		if (stars[i].position.z >= 60) {
-			stars[i].position.x = Math.random() * 100 - 50;
-	    	stars[i].position.y = Math.random() * 100 - 50;
-			stars[i].position.z = 5;
-		}
-	}
-}
-
-init();
-render();
-
-window.addEventListener("resize", function() {
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-});
+draw();

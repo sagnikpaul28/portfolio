@@ -141,6 +141,16 @@ export default {
           font-size: 4.5em;
         }
       }
+
+      @media screen  and (max-width: 768px){
+        span {
+          font-size: 1.75em;
+
+          &.backgroundPrimary {
+            font-size: 2em;
+          }
+        }
+      }
     }
   }
 
@@ -148,6 +158,12 @@ export default {
     span {
       span {
         font-size: 2.5em;
+      }
+
+      @media screen  and (max-width: 768px){
+        span {
+          font-size: 1.5em;
+        }
       }
     }
   }

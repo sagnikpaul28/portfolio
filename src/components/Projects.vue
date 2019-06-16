@@ -121,12 +121,25 @@ export default {
             width: calc(100% - 30px);
           }
 
+          @media screen and (max-width: 768px) {
+            &.title {
+              font-size: 1.25em;
+            }
+          }
+
           &.description {
             top: calc(100% - 30px);
             font-size: 1.2em;
             line-height: 1;
             opacity: 0;
             width: calc(100% - 120px);
+          }
+
+          @media screen and (max-width: 768px) {
+            &.description {
+              width: calc(100% - 30px);
+              font-size: 1em;
+            }
           }
         }
       }

@@ -186,8 +186,12 @@ export default {
         }
       }
 
-      p {
+      .content {
         margin-top: -20px;
+      }
+
+      p {
+        font-size: 1.2em;
         text-align: center;
       }
     }
