@@ -65,6 +65,10 @@ export default {
       }
     },
     onSubmit() {
+      let name = this.values.name;
+      let email = this.values.email;
+      let message = this.values.message;
+
       this.error = false;
       this.timeout ? clearInterval(this.timeout) : '';
       if (!this.values.name) {
@@ -77,13 +81,17 @@ export default {
         this.errorMessage = 'Submitting your response';
         this.error = true;
         axios.post("https://calm-temple-25672.herokuapp.com/", {
+          headers: {
+            "Content-Type": "application/json"
+          }, 
           body: JSON.stringify({
-            mailto: "sagnikpaul2882@gmail.com",
-            mailfrom: this.email,
+            emailto: "sagnikpaul2882@gmail.com",
+            emailfrom: email,
             subject: "Contact Form - Portfolio",
-            message: `Name: ${this.name}\nEmail: ${this.email}\nMessage: ${this.message}`
+            message: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
           })
         }).then(res => {
+          this.error = false;
           this.success = 'Your message has been successfully sent.';
           this.timeout = setTimeout(() => {
             this.success = false;
