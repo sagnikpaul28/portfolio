@@ -43,6 +43,9 @@
             "name": "Node",
             "url": "/nodejs.png"
         }, {
+            "name": "Meteor",
+            "url": "/meteor.png"
+        }, {
             "name": "Socket.io",
             "url": "/socket.png"
         }, {
@@ -65,29 +68,29 @@
     "Projects": {
         "title": "Projects",
         "items": [{
+            "name": "Lego-SCSS",
+            "description": "Building blocks for your scss code - Basic functions to increase reusability of code",
+            "image": "/npm.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/lego-scss"
+        }, {
             "name": "DC Wikipedia",
             "description": "A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend",
             "image": "/dc.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/dc-wiki"
         }, {
-            "name": "Pokedex",
-            "description": "A Simple React project using Redux to show all the pokemons from the 1st generation",
-            "image": "/pokedex.png",
+            "name": "Sonic Run",
+            "description": "A modified version of the famous Dino game from Chrome using Sonic the Hedgehog instead of the Dinosaur. Built using Javascript and HTML5 Canvas.",
+            "image": "/sonic.png",
             "linkType": "github",
-            "url": "https://github.com/sagnikpaul28/pokedex"
+            "url": "https://github.com/sagnikpaul28/sonic-run"
         }, {
-            "name": "KIIT Elabs",
-            "description": "E Labs is the brainchild of a bunch of college students who wanted to share their skills with their college mates at a better platform",
-            "image": "/elabs.png",
-            "linkType": "link",
-            "url": "http://www.kiitelabs.com/"
-        }, {
-            "name": "Quiz",
-            "description": "Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.",
-            "image": "/quiz.png",
-            "linkType": "link",
-            "url": "https://quizzzsite.000webhostapp.com"
+            "name": "Chat App",
+            "description": "Real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.",
+            "image": "/chat.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/chat"
         }, {
             "name": "JethiTech",
             "description": "JethiTech is an organization that assists you in website designing, Online Marketing, SEO Optimization, Social Media Marketing and Website Hosting.",
@@ -95,17 +98,23 @@
             "linkType": "link",
             "url": "http://jethitech.com/"
         }, {
-            "name": "Chat App",
-            "description": "A simple real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.",
-            "image": "/chat.png",
+            "name": "Pokedex",
+            "description": "A Simple React project using Redux to show all the pokemons from the 1st generation",
+            "image": "/pokedex.png",
             "linkType": "github",
-            "url": "https://github.com/sagnikpaul28/chat"
+            "url": "https://github.com/sagnikpaul28/pokedex"
         }, {
-            "name": "Sonic Run",
-            "description": "A modified version of the famous Dino game from Chrome using Sonic the Hedgehog instead of the Dinosaur. Built using Javascript and HTML5 Canvas.",
-            "image": "/sonic.png",
+            "name": "Note Keeper",
+            "description": "Keep all your Notes safe with this Note Keeper, which is built using Meteor.js",
+            "image": "/notekeeper.png",
             "linkType": "github",
-            "url": "https://github.com/sagnikpaul28/sonic-run"
+            "url": "https://github.com/sagnikpaul28/note-keeper"
+        }, {
+            "name": "Quiz",
+            "description": "Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.",
+            "image": "/quiz.png",
+            "linkType": "link",
+            "url": "https://quizzzsite.000webhostapp.com"
         }]
     },
     "About": {
