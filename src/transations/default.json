@@ -69,13 +69,13 @@
         "title": "Projects",
         "items": [{
             "name": "Lego-SCSS",
-            "description": "Building blocks for your scss code - Basic functions to increase reusability of code",
+            "description": "Building blocks for your scss code - Basic functions to increase reusability of code.",
             "image": "/npm.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/lego-scss"
         }, {
             "name": "DC Wikipedia",
-            "description": "A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend",
+            "description": "A Wikipedia of DC Comics Characters using React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend.",
             "image": "/dc.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/dc-wiki"
@@ -85,6 +85,12 @@
             "image": "/sonic.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/sonic-run"
+        }, {
+            "name": "Quiz",
+            "description": "Take a quiz on the on the available topics. Based on React and Redux in the frontend and Node.js alongwith Express and MongoDB as the backend.",
+            "image": "/quiz.png",
+            "linkType": "github",
+            "url": "https://github.com/sagnikpaul28/quiz"
         }, {
             "name": "Chat App",
             "description": "Real time Chat Application made using Node.js as backend language, Socket.io as websocket plugin and MongoDB as database to store the messages.",
@@ -99,22 +105,16 @@
             "url": "http://jethitech.com/"
         }, {
             "name": "Pokedex",
-            "description": "A Simple React project using Redux to show all the pokemons from the 1st generation",
+            "description": "A Simple React project using Redux to show all the pokemons from the 1st generation.",
             "image": "/pokedex.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/pokedex"
         }, {
             "name": "Note Keeper",
-            "description": "Keep all your Notes safe with this Note Keeper, which is built using Meteor.js",
+            "description": "Keep all your Notes safe with this Note Keeper, which is built using Meteor.js.",
             "image": "/notekeeper.png",
             "linkType": "github",
             "url": "https://github.com/sagnikpaul28/note-keeper"
-        }, {
-            "name": "Quiz",
-            "description": "Take a quiz on the following 4 topics: Game of Thrones, DC Comics, Marvel Comics or Football. And later check how you fared against others in the Leaderboard.",
-            "image": "/quiz.png",
-            "linkType": "link",
-            "url": "https://quizzzsite.000webhostapp.com"
         }]
     },
     "About": {
