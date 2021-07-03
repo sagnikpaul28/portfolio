@@ -1,31 +1,62 @@
 <template>
-    <div class="contact">
-      <div class="container">
-        <p>{{ title }}</p>
-        <form>
-          <div class="input-group">
-            <label :class="{active: labelActive.name}">{{ labels.name }}</label>
-            <input type="text" class="input" name="name" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.name" />
-          </div>
-          <div class="input-group">
-            <label :class="{active: labelActive.email}">{{ labels.email }}</label>
-            <input type="email" class="input" name="email" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.email" />
-          </div>
-          <div class="input-group">
-            <label :class="{active: labelActive.message}">{{ labels.message }}</label>
-            <textarea class="input" rows="5" name="message" @focus="onFocus($event)" @blur="onBlur($event)" v-model="values.message" />
-          </div>
-          <button class="btn" @click="onSubmit()" type="button">{{ labels.submit }}</button>
-        </form>
-      </div>
-      <div class="error-message" :class="{active: error && !success}">{{ errorMessage }}</div>
-      <div class="success-message" :class="{active: success}">{{ success }}</div>
+  <div class="contact">
+    <div class="container">
+      <p>{{ title }}</p>
+      <form>
+        <div class="input-group">
+          <label :class="{ active: labelActive.name }">{{ labels.name }}</label>
+          <input
+            type="text"
+            class="input"
+            name="name"
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+            v-model="values.name"
+          />
+        </div>
+        <div class="input-group">
+          <label :class="{ active: labelActive.email }">{{
+            labels.email
+          }}</label>
+          <input
+            type="email"
+            class="input"
+            name="email"
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+            v-model="values.email"
+          />
+        </div>
+        <div class="input-group">
+          <label :class="{ active: labelActive.message }">{{
+            labels.message
+          }}</label>
+          <textarea
+            class="input"
+            rows="5"
+            name="message"
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+            v-model="values.message"
+          />
+        </div>
+        <button class="btn" @click="onSubmit()" type="button">
+          {{ labels.submit }}
+        </button>
+      </form>
     </div>
+    <div class="error-message" :class="{ active: error && !success }">
+      {{ errorMessage }}
+    </div>
+    <div class="success-message" :class="{ active: success }">
+      {{ success }}
+    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-import { setTimeout, clearTimeout, clearInterval } from 'timers';
+import axios from "axios";
+import { setTimeout, clearInterval } from "timers";
 import Translations from "../transations/default.json";
 
 export default {
@@ -38,12 +69,12 @@ export default {
         message: false
       },
       values: {
-        name: '',
-        email: '',
-        message: ''
+        name: "",
+        email: "",
+        message: ""
       },
       error: false,
-      errorMessage: '',
+      errorMessage: "",
       success: false,
       timeout: null,
       title: Translations.Contact.title,
@@ -51,7 +82,7 @@ export default {
         name: Translations.Contact.labels.name,
         email: Translations.Contact.labels.email,
         message: Translations.Contact.labels.message,
-        submit: Translations.Contact.labels.submit,
+        submit: Translations.Contact.labels.submit
       }
     };
   },
@@ -60,7 +91,7 @@ export default {
       this.labelActive[event.target.name] = true;
     },
     onBlur(event) {
-      if (event.target.value === '') {
+      if (event.target.value === "") {
         this.labelActive[event.target.name] = false;
       }
     },
@@ -70,40 +101,43 @@ export default {
       let message = this.values.message;
 
       this.error = false;
-      this.timeout ? clearInterval(this.timeout) : '';
+      this.timeout ? clearInterval(this.timeout) : "";
       if (!this.values.name) {
-        this.errorMessage = 'Name can not be empty';
-      }else if (!this.values.email) {
-        this.errorMessage = 'Email can not be empty';
-      }else if (!this.values.message) {
-        this.errorMessage = 'Message can not be empty';
-      }else {
-        this.errorMessage = 'Submitting your response';
+        this.errorMessage = "Name can not be empty";
+      } else if (!this.values.email) {
+        this.errorMessage = "Email can not be empty";
+      } else if (!this.values.message) {
+        this.errorMessage = "Message can not be empty";
+      } else {
+        this.errorMessage = "Submitting your response";
         this.error = true;
-        axios.post("https://calm-temple-25672.herokuapp.com/", {
-          headers: {
-            "Content-Type": "application/json"
-          }, 
-          body: JSON.stringify({
-            emailto: "sagnikpaul2882@gmail.com",
-            emailfrom: email,
-            subject: "Contact Form - Portfolio",
-            message: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        axios
+          .post("https://calm-temple-25672.herokuapp.com/", {
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              emailto: "sagnikpaul2882@gmail.com",
+              emailfrom: email,
+              subject: "Contact Form - Portfolio",
+              message: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+            })
           })
-        }).then(res => {
-          this.error = false;
-          this.success = 'Your message has been successfully sent.';
-          this.timeout = setTimeout(() => {
-            this.success = false;
-          }, 3000);
-          console.log(res);
-        }).catch(err => {
-          this.errorMessage = "Some error occured. Please try again."
-          this.error = true;
-          this.timeout = setTimeout(() => {
+          .then(res => {
             this.error = false;
-          }, 3000);
-        })
+            this.success = "Your message has been successfully sent.";
+            this.timeout = setTimeout(() => {
+              this.success = false;
+            }, 3000);
+            console.log(res);
+          })
+          .catch(() => {
+            this.errorMessage = "Some error occured. Please try again.";
+            this.error = true;
+            this.timeout = setTimeout(() => {
+              this.error = false;
+            }, 3000);
+          });
         return;
       }
       this.error = true;
@@ -112,7 +146,7 @@ export default {
       }, 3000);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -121,7 +155,7 @@ export default {
   position: relative;
   padding: 190px 0 80px;
   cursor: url("/circle-white.svg") 18 18, auto;
-  
+
   &:before {
     content: "";
     position: absolute;
@@ -162,7 +196,7 @@ export default {
           display: block;
           background: #ff4040;
           padding: 0 5px;
-          transition: .3s;
+          transition: 0.3s;
 
           &.active {
             top: -7px;
@@ -185,20 +219,21 @@ export default {
       }
 
       .btn {
-          width: 100%;
-          padding: 12px;
-          background: transparent;
-          border: 2px solid white;
-          border-radius: 4px;
-          transition: .3s;
-          color: white;
-          font-size: 1.2em;
-          cursor: pointer;
-        }
+        width: 100%;
+        padding: 12px;
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 4px;
+        transition: 0.3s;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
     }
   }
 
-  .error-message, .success-message {
+  .error-message,
+  .success-message {
     border-radius: 4px;
     position: fixed;
     bottom: -70px;
@@ -210,7 +245,7 @@ export default {
     font-weight: bold;
     letter-spacing: -1px;
     border: 2px solid white;
-    transition: .5s ease;
+    transition: 0.5s ease;
     opacity: 0;
     z-index: 10;
 

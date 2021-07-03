@@ -22,7 +22,7 @@ export default {
       facebookLink: Translations.SocialMediaLinks.facebookLink,
       linkedInLink: Translations.SocialMediaLinks.linkedInLink,
       githubLink: Translations.SocialMediaLinks.githubLink
-    }
+    };
   }
 };
 </script>
@@ -49,7 +49,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .social-media {
     display: none;
   }

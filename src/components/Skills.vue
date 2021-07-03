@@ -1,20 +1,37 @@
 <template>
-    <div class="skills">
-      <p>
-        <span class="title">{{ title }}</span>
-        <span class="description">
-          <span v-for="(word, index1) in getWords" :key="index1">
-            <span class="animated" v-for="(character, index2) in getCharacters(word)" :key="index2" @mouseover="onMouseOver(index1, index2)" @mouseout="onMouseOut(index1, index2)" :class="{jello: (showAnimation[index1] ? showAnimation[index1][index2] : false) }">
-              {{ character }}
-            </span>
-            <span>&nbsp;</span>
+  <div class="skills">
+    <p>
+      <span class="title">{{ title }}</span>
+      <span class="description">
+        <span v-for="(word, index1) in getWords" :key="index1">
+          <span
+            class="animated"
+            v-for="(character, index2) in getCharacters(word)"
+            :key="index2"
+            @mouseover="onMouseOver(index1, index2)"
+            @mouseout="onMouseOut(index1, index2)"
+            :class="{
+              jello: showAnimation[index1]
+                ? showAnimation[index1][index2]
+                : false
+            }"
+          >
+            {{ character }}
           </span>
+          <span>&nbsp;</span>
         </span>
-      </p>
-      <div id="icons">
-        <img v-for="(item, index) in skills" :key="index" :src="item.url" :title="item.name" :alt="item.name" />
-      </div>
+      </span>
+    </p>
+    <div id="icons">
+      <img
+        v-for="(item, index) in skills"
+        :key="index"
+        :src="item.url"
+        :title="item.name"
+        :alt="item.name"
+      />
     </div>
+  </div>
 </template>
 
 <script>
@@ -28,15 +45,15 @@ export default {
       description: Translations.Skills.description,
       skills: Translations.Skills.list,
       showAnimation: []
-    }
+    };
   },
   computed: {
     getWords() {
-      return this.description.split(' ');
+      return this.description.split(" ");
     },
     getCharacters() {
       return function(word) {
-        return word.split('');
+        return word.split("");
       };
     }
   },
@@ -48,12 +65,12 @@ export default {
       this.$set(this.showAnimation[index1], index2, true);
     },
     onMouseOut(index1, index2) {
-      setTimeout( () => {
+      setTimeout(() => {
         this.$set(this.showAnimation[index1], index2, false);
-      }, 1000)
+      }, 1000);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -115,7 +132,7 @@ export default {
       width: 90px;
       object-fit: contain;
       margin: 60px;
-      transition: .3s;
+      transition: 0.3s;
 
       &:hover {
         transform: scale(1.5);
@@ -136,7 +153,7 @@ export default {
       max-width: 750px;
       margin: 0 auto;
 
-      .title{
+      .title {
         margin-bottom: 20px;
 
         &:after {
@@ -153,9 +170,9 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .skills {
-    padding: 2em; 
+    padding: 2em;
 
     p {
       .title {

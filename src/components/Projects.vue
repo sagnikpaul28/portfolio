@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
     <div id="container">
-      <p>{{title}}</p>
+      <p>{{ title }}</p>
       <div class="project" v-for="(project, index) in projects" :key="index">
         <img :src="project.image" class="image" :alt="project.name" />
         <div class="layer" />
@@ -9,8 +9,12 @@
         <p class="title">{{ project.name }}</p>
         <p class="description">{{ project.description }}</p>
         <span class="index">{{ index + 1 }}</span>
-        <a :href="project.url" class="link" target="_blank" >
-          <img src="/github.svg" alt="github" v-if="project.linkType === 'github'" />
+        <a :href="project.url" class="link" target="_blank">
+          <img
+            src="/github.svg"
+            alt="github"
+            v-if="project.linkType === 'github'"
+          />
           <img src="/link.png" alt="link" v-if="project.linkType === 'link'" />
         </a>
       </div>
@@ -248,10 +252,10 @@ export default {
       }
     }
 
-    @media screen and (max-width: 1200px){
+    @media screen and (max-width: 1200px) {
       .project {
         flex-basis: 85%;
-        
+
         &:nth-of-type(odd) {
           margin-left: 5%;
           margin-right: 10%;

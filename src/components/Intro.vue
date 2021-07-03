@@ -5,8 +5,19 @@
     </div>
     <div class="title">
       <span v-for="(word, index1) in getWords(title)" :key="index1">
-        <span v-for="(character, index2) in getCharacters(word)" :key="index2" class="animated" :class="{rubberBand: (showAnimationTitle[index1] ? showAnimationTitle[index1][index2] : false), backgroundPrimary: character==='S'||character==='P'}"
-        @mouseover="onMouseOverTitle(index1, index2)" @mouseout="onMouseOutTitle(index1, index2)" >
+        <span
+          v-for="(character, index2) in getCharacters(word)"
+          :key="index2"
+          class="animated"
+          :class="{
+            rubberBand: showAnimationTitle[index1]
+              ? showAnimationTitle[index1][index2]
+              : false,
+            backgroundPrimary: character === 'S' || character === 'P'
+          }"
+          @mouseover="onMouseOverTitle(index1, index2)"
+          @mouseout="onMouseOutTitle(index1, index2)"
+        >
           {{ character }}
         </span>
         <span>&nbsp;</span>
@@ -14,8 +25,19 @@
     </div>
     <div class="subtitle">
       <span v-for="(word, index1) in getWords(subtitle)" :key="index1">
-        <span v-for="(character, index2) in getCharacters(word)" :key="index2" class="animated" :class="{rubberBand: (showAnimationSubtitle[index1] ? showAnimationSubtitle[index1][index2] : false), backgroundPrimary: character==='S'||character==='P'}"
-        @mouseover="onMouseOverSubtitle(index1, index2)" @mouseout="onMouseOutSubtitle(index1, index2)" >
+        <span
+          v-for="(character, index2) in getCharacters(word)"
+          :key="index2"
+          class="animated"
+          :class="{
+            rubberBand: showAnimationSubtitle[index1]
+              ? showAnimationSubtitle[index1][index2]
+              : false,
+            backgroundPrimary: character === 'S' || character === 'P'
+          }"
+          @mouseover="onMouseOverSubtitle(index1, index2)"
+          @mouseout="onMouseOutSubtitle(index1, index2)"
+        >
           {{ character }}
         </span>
         <span>&nbsp;</span>
@@ -51,12 +73,12 @@ export default {
   computed: {
     getWords() {
       return function(sentence) {
-        return sentence.split(' ');
-      }
+        return sentence.split(" ");
+      };
     },
     getCharacters() {
       return function(word) {
-        return word.split('');
+        return word.split("");
       };
     }
   },
@@ -68,9 +90,9 @@ export default {
       this.$set(this.showAnimationTitle[index1], index2, true);
     },
     onMouseOutTitle(index1, index2) {
-      setTimeout( () => {
+      setTimeout(() => {
         this.$set(this.showAnimationTitle[index1], index2, false);
-      }, 1000)
+      }, 1000);
     },
     onMouseOverSubtitle(index1, index2) {
       if (!this.showAnimationSubtitle[index1]) {
@@ -79,9 +101,9 @@ export default {
       this.$set(this.showAnimationSubtitle[index1], index2, true);
     },
     onMouseOutSubtitle(index1, index2) {
-      setTimeout( () => {
+      setTimeout(() => {
         this.$set(this.showAnimationSubtitle[index1], index2, false);
-      }, 1000)
+      }, 1000);
     }
   }
 };
@@ -111,7 +133,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 600px) {
     #initials {
       display: none;
     }
@@ -142,7 +164,7 @@ export default {
         }
       }
 
-      @media screen  and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         span {
           font-size: 1.75em;
 
@@ -160,7 +182,7 @@ export default {
         font-size: 2.5em;
       }
 
-      @media screen  and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         span {
           font-size: 1.5em;
         }

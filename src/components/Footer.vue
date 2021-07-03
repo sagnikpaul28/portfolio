@@ -1,16 +1,16 @@
 <template>
   <div class="footer">
     <div class="footer-social-media">
-    <a :href="facebookLink">
-      <img src="/facebook.svg" alt="facebook" />
-    </a>
-    <a :href="linkedInLink">
-      <img src="/linkedin.svg" alt="linkedin" />
-    </a>
-    <a :href="githubLink">
-      <img src="/github.svg" alt="github" />
-    </a>
-  </div>
+      <a :href="facebookLink">
+        <img src="/facebook.svg" alt="facebook" />
+      </a>
+      <a :href="linkedInLink">
+        <img src="/linkedin.svg" alt="linkedin" />
+      </a>
+      <a :href="githubLink">
+        <img src="/github.svg" alt="github" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -24,9 +24,9 @@ export default {
       facebookLink: Translations.SocialMediaLinks.facebookLink,
       linkedInLink: Translations.SocialMediaLinks.linkedInLink,
       githubLink: Translations.SocialMediaLinks.githubLink
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
