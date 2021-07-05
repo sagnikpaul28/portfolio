@@ -49,6 +49,9 @@
             "name": "Socket.io",
             "url": "/socket.png"
         }, {
+            "name": "GraphQL",
+            "url": "/graphql.png"
+        }, {
             "name": "Java",
             "url": "/java.png"
         }, {
@@ -63,6 +66,12 @@
         }, {
             "name": "MySQL",
             "url": "/mysql.png"
+        }, {
+            "name": "Cassandra",
+            "url": "/cassandra.png"
+        }, {
+            "name": "Cypress.io",
+            "url": "/cypress.png"
         }]
     },
     "Projects": {
